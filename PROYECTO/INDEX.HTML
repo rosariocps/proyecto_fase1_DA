@@ -25,10 +25,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#add-movie">Registrar</a></li>
             <li class="nav-item"><a class="nav-link" href="#movie-list">Mi Lista</a></li>
             <li class="nav-item"><a class="nav-link" href="#more-movies">Mas Películas</a></li>
             <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
-            <li class="nav-item"><a class="nav-link" href="#ayuda">help</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ayuda">Ayuda</a></li>
 
             </ul>
             <form class="d-flex ms-3" role="search">
@@ -58,39 +59,69 @@
     </header>
 
     <main>
-        
-        <section id="movie-list">
-            <h2>Películas Vistas</h2>
-            <div class="slider-container">
-                <div class="slider">
-                    <div class="movie-item">
-                        <img src="https://play-lh.googleusercontent.com/560-H8NVZRHk00g3RltRun4IGB-Ndl0I0iKy33D7EQ0cRRwH78-c46s90lZ1ho_F1so" alt="Titanic">
-                        <h3>Titanic</h3>
-                        <p>Calificación: ⭐⭐⭐⭐</p>
-                        <p>Reseña: Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                    </div>
-                    <div class="movie-item">
-                        <img src="https://play-lh.googleusercontent.com/2RKyd1W-d1ZV6aEPri7I6bd4Ss-0QcgYb9NgaJDDUeJM3BX9g_wHRiFyiPl2EvJvVh-KrA=w240-h480-rw" alt="Avatar">
-                        <h3>Avatar</h3>
-                        <p>Calificación: ⭐⭐⭐⭐⭐</p>
-                        <p>Reseña: Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                    </div>
-                    <div class="movie-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWFQ3Bn-EcLKBad4hZ8LzGpYYD5MdaIuNceg&s" alt="Avengers: EndGame">
-                        <h3>Avengers: EndGame</h3>
-                        <p>Calificación: ⭐⭐⭐</p>
-                        <p>Reseña: Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                    </div>
-                    <!-- se puede agregar mas, depende xd -->
 
-                </div>
-                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <section id="add-movie" class="py-5">
+            <h2 class="text-center mb-4">Agregar Nueva Película</h2>
+            <form id="movieForm">
+                <fieldset class="border p-4">
+                    <legend>Datos de la Película</legend>
 
-                <section class="text-center mt-4">
-                    <a href="#more-movies" class="btn btn-danger btn-lg">Hacer mas Reseñas</a>
-                </section>
-            </div>
+                    <label for="movie-name" class="form-label">Nombre de la Película</label>
+                    <input type="text" class="form-control mb-3" id="movie-name" required>
+
+                    <label for="movie-image" class="form-label">Imagen de la Película</label>
+                    <input type="file" class="form-control mb-3" id="movie-image" accept="image/*" required>
+
+                    <label for="release-year" class="form-label">Año de Estreno</label>
+                    <input type="number" class="form-control mb-3" id="release-year" required>
+
+                    <label for="genre" class="form-label">Género</label>
+                    <select class="form-select" id="genre">
+                        <option value="Acción">Acción</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Terror">Terror</option>
+                        <option value="Ciencia ficción">Ciencia ficción</option>
+                        <option value="Aventura">Aventura</option>
+                    </select>
+
+                    <label for="movie-review" class="form-label">Reseña</label>
+                    <textarea class="form-control mb-3" id="movie-review" rows="4" required></textarea>
+
+                    <label for="rating" class="form-label">Calificación</label>
+                    <select class="form-select mb-3" id="rating" required>
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Agregar Película</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+
+        <section id="movie-list" class="py-5">
+            <h2 class="text-center mb-4">Películas Registradas</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Año de Estreno</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Reseña</th>
+                        <th scope="col">Calificación</th>
+                    </tr>
+                </thead>
+                <tbody id="movie-table-body">
+                    <!-- para que esten los registros , los td(JavaScript) -->
+                </tbody>
+            </table>
         </section>
 
         <section id="more-movies">
@@ -114,7 +145,7 @@
                         <figcaption class="card-body">
                             <h5 class="card-title">Minecraft</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadiresena" data-movie="Minecraft">Agregar Reseña</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Minecraft">Ver Reseñas</button>
                         </figcaption>
                     </figure>
                 </article>
@@ -125,7 +156,7 @@
                         <figcaption class="card-body">
                             <h5 class="card-title">Conjuro4</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadiresena" data-movie="Conjuro4">Agregar Reseña</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Conjuro4">Ver Reseñas</button>
                         </figcaption>
                     </figure>
                 </article>
@@ -136,52 +167,16 @@
                         <figcaption class="card-body">
                             <h5 class="card-title">Barbie: The Movie</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadiresena" data-movie="Barbie">Agregar Reseña</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Barbie">Ver Reseñas</button>
                         </figcaption>
                     </figure>
                 </article>
             </section>
 
-                    <!-- Modal de Agregar Reseña a la seccion mas peliculas -->
-            <div class="modal fade" id="anadiresena" tabindex="-1" aria-labelledby="anadiresena" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="anadiresena">Agregar Reseña</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="mb-3">
-                        <label for="movie-title" class="form-label">Título de la Película</label>
-                        <input type="text" class="form-control" id="movie-title" required readonly>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rating" class="form-label">Calificación</label>
-                        <select class="form-select" id="rating">
-                        <option value="1">⭐</option>
-                        <option value="2">⭐⭐</option>
-                        <option value="3">⭐⭐⭐</option>
-                        <option value="4">⭐⭐⭐⭐</option>
-                        <option value="5">⭐⭐⭐⭐⭐</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="review" class="form-label">Reseña</label>
-                        <textarea class="form-control" id="review" rows="4" required></textarea>
-                    </div>
-                    <div class="mb-3 text-center">
-                        <button type="submit" class="btn btn-primary">Agregar Reseña</button>
-                    </div>
-                    </form>
-                </div>
-                </div>
-            </div>
-            </div>
 
         </section>
 
-                <section class="bg-dark text-white py-5">
+        <section class="bg-dark text-white py-5">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="fw-bold">Reseñas Populares esta semana</h2>
@@ -242,6 +237,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <section id="perfil" class="py-5">
         <div class="container">
@@ -309,7 +306,7 @@
                     </div>
                     <div class="mb-3">
                     <label for="edit-bio" class="form-label">Acerca de mí</label>
-                    <textarea class="form-control" id="edit-bio" rows="3">Soy...</textarea>
+                    <textarea class="form-control" id="edit-bio" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
                     <label for="edit-skills" class="form-label">generos</label>
@@ -356,7 +353,7 @@
                 </form>
                 </div>
                 <div class="col-md-6 text-center">
-                <h5>Siguenos en  nuestras redes sociales</h5>
+                <h5>Siguenos en nuestras redes sociales</h5>
                 <div class="d-flex justify-content-center gap-2 mt-3">
                     <a href="https://www.facebook.com" class="btn btn-outline-dark">Facebook</a>
                     <a href="https://x.com" class="btn btn-outline-dark">X</a>
@@ -407,5 +404,3 @@
 
 </body>
 </html>
-
-
