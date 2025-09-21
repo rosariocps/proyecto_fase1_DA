@@ -111,6 +111,9 @@ section {
 .movie-card .card-title {
   color: var(--color-accent);
 }
+.card-text {
+    color: white;
+}
 
 #perfil img {
   border: 3px solid var(--color-primary);
