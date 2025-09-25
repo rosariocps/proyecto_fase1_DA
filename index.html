@@ -13,357 +13,131 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-        <a class="navbar-brand fw-bold" href="#">CineVault</a>
-        <button 
-            class="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav" 
-            aria-controls="navbarNav" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#add-movie">Registrar</a></li>
-            <li class="nav-item"><a class="nav-link" href="#movie-list">Mi Lista</a></li>
-            <li class="nav-item"><a class="nav-link" href="#more-movies">Mas Películas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
-            <li class="nav-item"><a class="nav-link" href="#ayuda">Ayuda</a></li>
-
-            </ul>
-            <form class="d-flex ms-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar películas" aria-label="Buscar">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-        </div>
+            <a class="navbar-brand fw-bold" href="#">CineVault</a>
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#add-movie">Registrar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#movie-list">Mi Lista</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stats">Estadísticas</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO HEADER -->
     <header 
         class="bg-dark text-white text-center d-flex align-items-center"
         style="
-        background-image: url('https://aldianews.com/sites/default/files/2024-12/COLLAGE%20PEL%C3%8DCULAS.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
+            background-image: url('https://i.pinimg.com/1200x/02/4e/3d/024e3da3e546cbc5076320ecb90cac09.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
         ">
         <div class="container py-5">
-        <h1 class="display-3 fw-bold">CINEVAULT</h1>
-        <p class="lead">
-            Tu diario personal de cine: registra, reseña y lleva un control de todo lo que ves.
-        </p>
-        <a href="#movie-list" class="btn btn-danger btn-lg mt-3">Ver mis resenas</a>
+            <h1 class="display-3 fw-bold">CINEVAULT</h1>
+            <p class="lead">
+                Tu diario personal de cine: registra, reseña y lleva un control de todo lo que ves.
+            </p>
+            <a href="#movie-list" class="btn btn-danger btn-lg mt-3">Ver mis reseñas</a>
         </div>
     </header>
 
+
     <main>
-
         <section id="add-movie" class="py-5">
-            <h2 class="text-center mb-4">Agregar Nueva Película</h2>
-            <form id="movieForm">
-                <fieldset class="border p-4">
-                    <legend>Datos de la Película</legend>
+            <div class="container">
+                <h2 class="text-center mb-4">Agregar Nueva Película</h2>
 
-                    <label for="movie-name" class="form-label">Nombre de la Película</label>
-                    <input type="text" class="form-control mb-3" id="movie-name" required>
+                <div class="card shadow-lg p-4">
+                    <form id="movieForm">
+                        <div class="row g-3">
+                            <!-- Columna izquierda -->
+                            <div class="col-md-6">
+                                <label for="movie-title" class="form-label fw-bold">Título</label>
+                                <input type="text" class="form-control" id="movie-title" required>
 
-                    <label for="movie-image" class="form-label">Imagen de la Película</label>
-                    <input type="file" class="form-control mb-3" id="movie-image" accept="image/*" required>
+                                <label for="director" class="form-label fw-bold mt-3">Director</label>
+                                <input type="text" class="form-control" id="director" required>
 
-                    <label for="release-year" class="form-label">Año de Estreno</label>
-                    <input type="number" class="form-control mb-3" id="release-year" required>
+                                <label for="release-date" class="form-label fw-bold mt-3">Fecha de Estreno</label>
+                                <input type="date" class="form-control" id="release-date" required>
 
-                    <label for="genre" class="form-label">Género</label>
-                    <select class="form-select" id="genre">
-                        <option value="Acción">Acción</option>
-                        <option value="Comedia">Comedia</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Ciencia ficción">Ciencia ficción</option>
-                        <option value="Aventura">Aventura</option>
-                    </select>
+                                <label for="genre" class="form-label fw-bold mt-3">Género</label>
+                                <select class="form-select" id="genre">
+                                    <option value="Acción">Acción</option>
+                                    <option value="Comedia">Comedia</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Terror">Terror</option>
+                                    <option value="Ciencia ficción">Ciencia ficción</option>
+                                    <option value="Aventura">Aventura</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="No Ficción">No Ficción</option>
+                                    <option value="Animación">Animación</option>
+                                    <option value="Documental">Documental</option>
+                                </select>
 
-                    <label for="movie-review" class="form-label">Reseña</label>
-                    <textarea class="form-control mb-3" id="movie-review" rows="4" required></textarea>
+                                <label for="movie-image" class="form-label fw-bold mt-3">Imagen</label>
+                                <input type="file" class="form-control" id="movie-image" accept="image/*" required>
+                            </div>
 
-                    <label for="rating" class="form-label">Calificación</label>
-                    <select class="form-select mb-3" id="rating" required>
-                        <option value="1">⭐</option>
-                        <option value="2">⭐⭐</option>
-                        <option value="3">⭐⭐⭐</option>
-                        <option value="4">⭐⭐⭐⭐</option>
-                        <option value="5">⭐⭐⭐⭐⭐</option>
-                    </select>
+                            <!-- Columna derecha -->
+                            <div class="col-md-6">
+                                <label for="synopsis" class="form-label fw-bold">Sinopsis</label>
+                                <textarea class="form-control mb-3" id="synopsis" rows="4" required></textarea>
 
-                    <div class="text-center mt-3">
-                        <button type="submit" class="btn btn-primary">Agregar Película</button>
-                    </div>
-                </fieldset>
-            </form>
+                                <label for="review" class="form-label fw-bold">Reseña / Opinión</label>
+                                <textarea class="form-control mb-3" id="review" rows="4" required></textarea>
+
+                                <label for="fav-quote" class="form-label fw-bold">Frase Favorita</label>
+                                <input type="text" class="form-control mb-3" id="fav-quote">
+
+                                <label for="rating" class="form-label fw-bold">Calificación</label>
+                                <select class="form-select mb-3" id="rating" required>
+                                    <option value="1">★</option>
+                                    <option value="2">★★</option>
+                                    <option value="3">★★★</option>
+                                    <option value="4">★★★★</option>
+                                    <option value="5">★★★★★</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary px-5">Agregar Película</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
-
 
         <section id="movie-list" class="py-5">
-            <h2 class="text-center mb-4">Películas Registradas</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Año de Estreno</th>
-                        <th scope="col">Género</th>
-                        <th scope="col">Reseña</th>
-                        <th scope="col">Calificación</th>
-                    </tr>
-                </thead>
-                <tbody id="movie-table-body">
-                    <!-- para que esten los registros , los td(JavaScript) -->
-                </tbody>
-            </table>
+                <div class="container">
+                        <h2 class="text-center mb-4">Películas Registradas</h2>
+                        <div id="movie-cards">
+                        </div>
+                </div>
         </section>
 
-        <section id="more-movies">
-            <h2>Más Películas</h2>
-            
-            <section class="mb-3">
-                <label for="genre-selector" class="form-label">Selecciona un Género:</label>
-                <select class="form-select" id="genre-selector">
-                    <option value="action">Acción</option>
-                    <option value="drama">Drama</option>
-                    <option value="comedy">Comedia</option>
-                    <option value="horror">Terror</option>
-                </select>
-            </section>
-            
-            <!-- Películas -->
-            <section class="movie-list row">
-                <article class="col-md-4 mb-4">
-                    <figure class="movie-card card">
-                        <img src="https://preview.redd.it/why-is-everyone-liking-the-minecraft-movie-after-the-second-v0-a4pu8ndutofe1.jpeg?width=640&crop=smart&auto=webp&s=dc6a8480329b79084a06f6ab7a7182693fa094e3" class="card-img-top" alt="Minecraft">
-                        <figcaption class="card-body">
-                            <h5 class="card-title">Minecraft</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Minecraft">Ver Reseñas</button>
-                        </figcaption>
-                    </figure>
-                </article>
-
-                <article class="col-md-4 mb-4">
-                    <figure class="movie-card card">
-                        <img src="https://m.media-amazon.com/images/M/MV5BYmU0NzZhYTItOWEyMy00YWE5LTljZjgtOGJhYmIwNDI5NjNiXkEyXkFqcGc@._V1_.jpg" class="card-img-top" alt="Conjuro4">
-                        <figcaption class="card-body">
-                            <h5 class="card-title">Conjuro4</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Conjuro4">Ver Reseñas</button>
-                        </figcaption>
-                    </figure>
-                </article>
-
-                <article class="col-md-4 mb-4">
-                    <figure class="movie-card card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS57LkXZzxAPgOb7i7tZMGVwWh75hVe1tgAPQ&s" class="card-img-top" alt="Barbie">
-                        <figcaption class="card-body">
-                            <h5 class="card-title">Barbie: The Movie</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, nibh vivamus leo ultricies nullam magnis laoreet.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verresena" data-movie="Barbie">Ver Reseñas</button>
-                        </figcaption>
-                    </figure>
-                </article>
-            </section>
-
-
-        </section>
-
-        <section class="bg-dark text-white py-5">
-            <div class="container">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2 class="fw-bold">Reseñas Populares esta semana</h2>
-                    <a href="#" class="text-secondary">Más</a>
-                </div>
-
-                <div class="row g-4">
-                    <article class="col-md-6">
-                        <section class="card bg-secondary text-white p-3 h-100">
-                            <figure class="d-flex">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg6qE1-8nz7c8ybyzyqMlPy3b9mi0tOreA4g&s" 
-                                    class="me-3 rounded" width="80" alt="Flow">
-                                <figcaption>
-                                    <h5 class="mb-1">Flow <span class="text-muted">2024</span></h5>
-                                    <small class="text-info">⭐⭐⭐⭐ (37 votos)</small>
-                                    <p class="mt-2 mb-1">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, 
-                                        nibh vivamus leo ultricies nullam magnis laoreet</p>
-                                    <small class="text-muted">❤️ 12,951 me gusta</small>
-                                </figcaption>
-                            </figure>
-                        </section>
-                    </article>
-
-                    <article class="col-md-6">
-                        <section class="card bg-secondary text-white p-3 h-100">
-                            <figure class="d-flex">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6TPst2Tb9Op8JxJ-YpvTjfuyEYjyKHHtZ5w&s" 
-                                    class="me-3 rounded" width="80" alt="Roblox">
-                                <figcaption>
-                                    <h5 class="mb-1">Roblox: The Movie <span class="text-muted">2025</span></h5>
-                                    <small class="text-info">⭐⭐⭐ (35 votos)</small>
-                                    <p class="mt-2 mb-1">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, 
-                                        nibh vivamus leo ultricies nullam magnis laoreet</p>
-                                    <small class="text-muted">❤️ 13,234 me gusta</small>
-                                </figcaption>
-                            </figure>
-                        </section>
-                    </article>
-
-                    <article class="col-md-6">
-                        <section class="card bg-secondary text-white p-3 h-100">
-                            <figure class="d-flex">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_nZ8sYjHY798kMqElJdBBTQP8hs8-MjcRfw&s" 
-                                    class="me-3 rounded" width="80" alt="Under">
-                                <figcaption>
-                                    <h5 class="mb-1">Under my Conditions <span class="text-muted">2025</span></h5>
-                                    <small class="text-info">⭐⭐⭐⭐⭐ (35 votos)</small>
-                                    <p class="mt-2 mb-1">Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque, 
-                                        nibh vivamus leo ultricies nullam magnis laoreet</p>
-                                    <small class="text-muted">❤️ 13,234 me gusta</small>
-                                </figcaption>
-                            </figure>
-                        </section>
-                    </article>
-
-                    
-                    <!-- para más reseñas si se quiere, claro   -->
-                </div>
-            </div>
-        </section>
-
-
-
-        <section id="perfil" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Perfil</h2>
-            <div class="row justify-content-center">
-            <div class="col-lg-4 text-center">
-                <img
-                src="https://i5.walmartimages.com/asr/fbb30a7f-e4af-4ff2-ac3a-7f3ad4fca9bb.eb15f0ddaec29723ba419f905c700cef.jpeg"
-                alt="Tony Stark"
-                class="rounded-circle img-thumbnail mb-3"
-                width="150"
-                height="150"
-                />
-                <h3>Tony Stark</h3>
-                <p><strong>Cinefilo</strong></p>
-                <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#editProfileModal">Editar Perfil</button>
-            </div>
-            
-            <div class="col-lg-8">
-                <h4>Acerca de Mí</h4>
-                <p>
-                Soy un cinefilo divertido
-                </p>
-
-                <h4>Generos</h4>
-                <div class="d-flex justify-content-start flex-wrap gap-2">
-                <span class="badge bg-primary">Comedia</span>
-                <span class="badge bg-secondary">Terror</span>
-                <span class="badge bg-success">Accion</span>
-                <span class="badge bg-info text-dark">Romance</span>
-
-                </div>
-
-                <h4>Información de Contacto</h4>
-                <ul class="list-unstyled">
-                <li><strong>Email:</strong> tony@starkindustries.com</li>
-                <li><strong>Teléfono:</strong> +1 (555) 123-4567</li>
-                <li><strong>Dirección:</strong> USA</li>
-                </ul>
-            </div>
-            </div>
-        </div>
-        
-        <!-- Modal para editar perfil -->
-        <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="editProfileModalLabel">Editar Perfil</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                    <label for="edit-name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="edit-name" value="Tony Stark">
-                    </div>
-                    <div class="mb-3">
-                    <label for="edit-email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="edit-email" value="tony@starkindustries.com">
-                    </div>
-                    <div class="mb-3">
-                    <label for="edit-phone" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="edit-phone" value="+1 (555) 123-4567">
-                    </div>
-                    <div class="mb-3">
-                    <label for="edit-bio" class="form-label">Acerca de mí</label>
-                    <textarea class="form-control" id="edit-bio" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3">
-                    <label for="edit-skills" class="form-label">generos</label>
-                    <input type="text" class="form-control" id="edit-skills" value="">
-                    </div>
-                </form>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Guardar Cambios</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        </section>
-
-
-        <section id="ayuda" class="py-5">
-            <div class="container">
-            <h2 class="text-center mb-4">Ayuda</h2>
+        <section id="stats" class="py-5">
+            <h2 class="text-center mb-4">Estadísticas</h2>
             <div class="row">
                 <div class="col-md-6">
-                <form>
-                    <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="nombre"
-                        placeholder="Tu nombre"
-                    />
-                    </div>
-
-                    <div class="mb-3">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea
-                        class="form-control"
-                        id="mensaje"
-                        rows="4"
-                        placeholder="Escribe tu mensaje aquí"
-                    ></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
+                    <canvas id="ratingsChart"></canvas>
                 </div>
-                <div class="col-md-6 text-center">
-                <h5>Siguenos en nuestras redes sociales</h5>
-                <div class="d-flex justify-content-center gap-2 mt-3">
-                    <a href="https://www.facebook.com" class="btn btn-outline-dark">Facebook</a>
-                    <a href="https://x.com" class="btn btn-outline-dark">X</a>
-                    <a href="https://www.instagram.com" class="btn btn-outline-dark">Instagram</a>
+                <div class="col-md-6">
+                    <canvas id="genreChart"></canvas>
                 </div>
-                </div>
-            </div>
             </div>
         </section>
 
@@ -371,20 +145,97 @@
             <div class="container text-center">
                 <h4>Acerca de la Página</h4>
                 <p>
-                CINEVAULT es un espacio diseñado para los amantes del cine. Aquí puedes ver tus reseñas de películas, compartir tus opiniones y descubrir nuevas películas recomendadas por otros usuarios. ¡Explora, disfruta y comparte!
+                    CINEVAULT es un espacio pensado para los verdaderos amantes del cine. Aquí puedes llevar 
+                    un registro personal de todas las películas que has visto, guardarlas en tu propia bóveda 
+                    digital, escribir reseñas con tus opiniones y calificaciones, e incluso descubrir qué 
+                    géneros disfrutas más gracias a las estadísticas que se generan automáticamente.
+                    Más que una simple lista, CineVault se convierte en tu diario cinematográfico: un lugar 
+                    donde cada película que ves queda grabada con tu propia voz, para que revivas la 
+                    experiencia y sigas construyendo tu historia como cinéfilo.
+
                 </p>
             </div>
         </section>
-
     </main>
 
-    <footer center>
-        <p>&copy; 2025 proyecto</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="app.js"></script>
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Editar película</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="row g-3">
+                            <!-- Columna izquierda -->
+                            <div class="col-md-6">
+                                <label for="edit-movie-title" class="form-label fw-bold">Título</label>
+                                <input type="text" class="form-control" id="edit-movie-title" required>
 
+                                <label for="edit-director" class="form-label fw-bold mt-3">Director</label>
+                                <input type="text" class="form-control" id="edit-director" required>
+
+                                <label for="edit-release-date" class="form-label fw-bold mt-3">Fecha de Estreno</label>
+                                <input type="date" class="form-control" id="edit-release-date" required>
+
+                                <label for="edit-genre" class="form-label fw-bold mt-3">Género</label>
+                                <select class="form-select" id="edit-genre">
+                                    <option value="Acción">Acción</option>
+                                    <option value="Comedia">Comedia</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Terror">Terror</option>
+                                    <option value="Ciencia ficción">Ciencia ficción</option>
+                                    <option value="Aventura">Aventura</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="No Ficción">No Ficción</option>
+                                    <option value="Animación">Animación</option>
+                                    <option value="Documental">Documental</option>
+                                </select>
+
+                                <label for="edit-movie-image" class="form-label fw-bold mt-3">Imagen (opcional)</label>
+                                <input type="file" class="form-control" id="edit-movie-image" accept="image/*">
+                                <div class="form-text">Si no seleccionas una imagen, se conservará la actual.</div>
+                            </div>
+
+                            <!-- Columna derecha -->
+                            <div class="col-md-6">
+                                <label for="edit-synopsis" class="form-label fw-bold">Sinopsis</label>
+                                <textarea class="form-control mb-3" id="edit-synopsis" rows="4" required></textarea>
+
+                                <label for="edit-review" class="form-label fw-bold">Reseña / Opinión</label>
+                                <textarea class="form-control mb-3" id="edit-review" rows="4" required></textarea>
+
+                                <label for="edit-fav-quote" class="form-label fw-bold">Frase Favorita</label>
+                                <input type="text" class="form-control mb-3" id="edit-fav-quote">
+
+                                <label for="edit-rating" class="form-label fw-bold">Calificación</label>
+                                <select class="form-select mb-3" id="edit-rating" required>
+                                    <option value="1">★</option>
+                                    <option value="2">★★</option>
+                                    <option value="3">★★★</option>
+                                    <option value="4">★★★★</option>
+                                    <option value="5">★★★★★</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="text-end mt-2">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 CineVault - Proyecto académico</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
-
