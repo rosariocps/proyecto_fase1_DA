@@ -10,3 +10,9 @@ https://rosariocps.github.io/proyecto_fase1_DA/
 - CSS3 / Sass (procesado a CSS)
 - Bootstrap 5
 - JavaScript (DOM Manipulation)
+
+# Integrantes  
+- Nicolás Matheus Ayerve Arenas  
+- Rosario De Los Ángeles Cahuana Pari  
+- Ivan Wilfredo Cutipa Anahua  
+- Maria Fernanda Linares Limache 
