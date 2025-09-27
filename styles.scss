@@ -9,15 +9,14 @@ $transition: 0.3s ease-in-out;
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: $color-bg !important;
-  color: $color-light !important;
+  background-color: $color-bg;
+  color: $color-light;
   margin: 0;
   padding-top: 70px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
   font-weight: 700;
-  color: $color-light !important;
 }
 
 a {
@@ -29,272 +28,171 @@ a {
 }
 
 .navbar {
-  background: rgba(0, 0, 0, 0.9) !important;
+  background: rgba(0,0,0,0.9);
   backdrop-filter: blur(6px);
+
   .navbar-brand {
     font-size: 1.5rem;
     color: $color-accent !important;
   }
+
   .nav-link {
     font-weight: 500;
     color: $color-light !important;
-    &.active, &:hover {
+
+    &.active,
+    &:hover {
       color: $color-primary !important;
     }
   }
 }
 
+form .btn {
+  border-radius: $radius;
+}
+
 header {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
   }
+
   .container {
     position: relative;
     z-index: 2;
   }
+
   h1 {
     font-size: 4rem;
-    color: $color-accent !important;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    color: $color-accent;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
   }
 }
 
 section {
   scroll-margin-top: 80px;
-  padding: 3rem 0;
 }
 
 #add-movie {
   .card {
     border-radius: $radius;
-    border: 2px solid $color-accent !important;
-    background-color: $color-dark !important;
-    color: $color-light !important;
+    border: 2px solid $color-accent;
+    background-color: $color-dark;
+    color: $color-light;
+    padding: 20px;
   }
+
   label {
-    color: $color-accent !important;
+    color: $color-accent;
     font-weight: bold;
   }
-  input, textarea, select {
+
+  input,
+  textarea,
+  select {
     border-radius: $radius;
-    border: 1px solid $color-muted !important;
-    background: #1a1a1a !important;
-    color: $color-light !important;
+    border: 1px solid $color-muted;
+    background: #1a1a1a;
+    color: $color-light;
+
     &:focus {
-      border-color: $color-accent !important;
-      box-shadow: 0 0 6px $color-accent !important;
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: 0 0 5px $color-accent;
     }
   }
+
   button {
     border-radius: $radius;
-    background: $color-primary !important;
-    border: none !important;
-    color: $color-light !important;
+    background: $color-primary;
+    border: none;
+    color: $color-light;
+
     &:hover {
-      background: #b20710 !important;
+      background: #b20710;
     }
   }
 }
 
-#movie-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 1.5rem;
-  justify-content: center;
+#movie-list {
+  table {
+    background-color: $color-dark;
+    border-radius: $radius;
+    overflow: hidden;
+  }
+  th {
+    background-color: $color-primary;
+    color: white;
+  }
+  td {
+    vertical-align: middle;
+  }
 }
 
 .movie-card {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: "image details" "synopsis review";
-  gap: 0.8rem;
-  background: $color-dark !important;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
   border-radius: $radius;
-  padding: 0.8rem;
-  color: $color-light !important;
-  margin-bottom: 1.5rem;
-  max-width: 620px;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease-in-out;
+  background: $color-dark;
+
+  img {
+    border-radius: $radius $radius 0 0;
+  }
+
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
   }
-  &__image {
-    grid-area: image;
-    img {
-      width: 100%;
-      height: auto;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: $radius;
-    }
+
+  .card-title {
+    color: $color-accent;
   }
-  &__actions {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    display: flex;
-    gap: 0.5rem;
-    button {
-      border: none;
-      padding: 0.3rem 0.6rem;
-      border-radius: $radius;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: $transition;
-    }
-    .btn-edit {
-      background: $color-accent !important;
-      color: #000 !important;
-      &:hover {
-        background: #d4a100 !important;
-      }
-    }
-    .btn-delete {
-      background: $color-primary !important;
-      color: $color-light !important;
-      &:hover {
-        background: #b20710 !important;
-      }
-    }
-  }
-  &__details {
-    grid-area: details;
-    display: flex;
-    flex-direction: column;
-    .field {
-      border: 1px solid $color-muted !important;
-      border-radius: 6px;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      background: #1a1a1a !important;
-      strong {
-        color: $color-accent !important;
-      }
-    }
-  }
-  &__synopsis, &__review {
-    border: 1px solid $color-muted !important;
-    border-radius: $radius;
-    padding: 0.8rem;
-    background: $color-dark !important;
-    color: $color-light !important;
-    h6 {
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: $color-accent !important;
-    }
-  }
-  &__synopsis {
-    grid-area: synopsis;
-  }
-  &__review {
-    grid-area: review;
+
+  .card-text {
+    color: white;
   }
 }
 
-.modal-content {
-  background: $color-dark !important;
-  color: $color-light !important;
-  border: 1px solid $color-muted !important;
-  border-radius: $radius;
-}
-
-.modal-header {
-  border-bottom: 1px solid $color-muted !important;
-  .btn-close {
-    filter: invert(1);
+#perfil {
+  img {
+    border: 3px solid $color-primary;
+  }
+  .badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+    border-radius: $radius;
   }
 }
 
-.modal-footer {
-  border-top: 1px solid $color-muted !important;
-}
+#ayuda {
+  form {
+    background: $color-dark;
+    padding: 20px;
+    border-radius: $radius;
+  }
+  .btn-outline-dark {
+    border-color: $color-accent;
+    color: $color-accent;
 
-#editModal {
-  .modal-content {
-    background: $color-dark !important;
-    color: $color-light !important;
-    border: 2px solid $color-accent !important;
-    border-radius: $radius;
-  }
-  .modal-header {
-    border-bottom: 1px solid $color-accent !important;
-    .modal-title {
-      color: $color-accent !important;
-      font-weight: bold;
-    }
-  }
-  label {
-    color: $color-accent !important;
-    font-weight: bold;
-  }
-  input, textarea, select {
-    background: #1a1a1a !important;
-    color: $color-light !important;
-    border: 1px solid $color-muted !important;
-    border-radius: $radius;
-    &:focus {
-      outline: none;
-      border-color: $color-accent !important;
-      box-shadow: 0 0 5px $color-accent !important;
-    }
-  }
-  .modal-footer {
-    border-top: 1px solid $color-accent !important;
-  }
-  .btn-primary {
-    background: $color-primary !important;
-    border: none !important;
-    border-radius: $radius;
     &:hover {
-      background: #b20710 !important;
-    }
-  }
-  .btn-secondary {
-    background: #333 !important;
-    border: none !important;
-    border-radius: $radius;
-    &:hover {
-      background: #555 !important;
+      background: $color-accent;
+      color: black;
     }
   }
 }
 
 footer {
-  background: $color-dark !important;
+  background: $color-dark;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  color: $color-muted !important;
+  color: $color-muted;
+
   p {
     margin: 0;
   }
-}
-
-@media (max-width: 768px) {
-  .movie-card {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "image"
-      "details"
-      "synopsis"
-      "review";
-    max-width: 100%;
-  }
-}
-
-#genreChart {
-  max-width: 500px;
-  max-height: 500px;
-  margin: 0 auto;
-  display: block;
 }
