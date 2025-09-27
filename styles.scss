@@ -7,6 +7,26 @@ $color-muted: #9ca3af;
 $radius: 12px;
 $transition: 0.3s ease-in-out;
 
+@mixin button-style($bgColor, $hoverColor, $textColor: $color-light) {
+  background: $bgColor;
+  color: $textColor;
+  border: none;
+  border-radius: $radius;
+  transition: $transition;
+  &:hover {
+    background: $hoverColor;
+    color: $textColor;
+  }
+}
+
+@mixin card-style($bgColor, $borderColor: $color-accent) {
+  background: $bgColor;
+  border: 2px solid $borderColor;
+  border-radius: $radius;
+  padding: 20px;
+  color: $color-light;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: $color-bg;
@@ -30,16 +50,13 @@ a {
 .navbar {
   background: rgba(0,0,0,0.9);
   backdrop-filter: blur(6px);
-
   .navbar-brand {
     font-size: 1.5rem;
     color: $color-accent !important;
   }
-
   .nav-link {
     font-weight: 500;
     color: $color-light !important;
-
     &.active,
     &:hover {
       color: $color-primary !important;
@@ -53,19 +70,16 @@ form .btn {
 
 header {
   position: relative;
-
   &::after {
     content: "";
     position: absolute;
     top:0; left:0; right:0; bottom:0;
     background: rgba(0,0,0,0.6);
   }
-
   .container {
     position: relative;
     z-index: 2;
   }
-
   h1 {
     font-size: 4rem;
     color: $color-accent;
@@ -79,18 +93,12 @@ section {
 
 #add-movie {
   .card {
-    border-radius: $radius;
-    border: 2px solid $color-accent;
-    background-color: $color-dark;
-    color: $color-light;
-    padding: 20px;
+    @include card-style($color-dark, $color-accent);
   }
-
   label {
     color: $color-accent;
     font-weight: bold;
   }
-
   input,
   textarea,
   select {
@@ -98,23 +106,14 @@ section {
     border: 1px solid $color-muted;
     background: #1a1a1a;
     color: $color-light;
-
     &:focus {
       outline: none;
       border-color: $color-accent;
       box-shadow: 0 0 5px $color-accent;
     }
   }
-
   button {
-    border-radius: $radius;
-    background: $color-primary;
-    border: none;
-    color: $color-light;
-
-    &:hover {
-      background: #b20710;
-    }
+    @include button-style($color-primary, #b20710);
   }
 }
 
@@ -138,20 +137,16 @@ section {
   border: none;
   border-radius: $radius;
   background: $color-dark;
-
   img {
     border-radius: $radius $radius 0 0;
   }
-
   &:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.5);
   }
-
   .card-title {
     color: $color-accent;
   }
-
   .card-text {
     color: white;
   }
@@ -177,7 +172,6 @@ section {
   .btn-outline-dark {
     border-color: $color-accent;
     color: $color-accent;
-
     &:hover {
       background: $color-accent;
       color: black;
@@ -191,7 +185,6 @@ footer {
   padding: 20px;
   margin-top: 40px;
   color: $color-muted;
-
   p {
     margin: 0;
   }
