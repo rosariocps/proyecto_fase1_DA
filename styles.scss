@@ -9,14 +9,15 @@ $transition: 0.3s ease-in-out;
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: $color-bg;
-  color: $color-light;
+  background-color: $color-bg !important;
+  color: $color-light !important;
   margin: 0;
   padding-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  color: $color-light !important;
 }
 
 a {
@@ -28,7 +29,7 @@ a {
 }
 
 .navbar {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.9) !important;
   backdrop-filter: blur(6px);
   .navbar-brand {
     font-size: 1.5rem;
@@ -57,7 +58,7 @@ header {
   }
   h1 {
     font-size: 4rem;
-    color: $color-accent;
+    color: $color-accent !important;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
   }
 }
@@ -70,23 +71,31 @@ section {
 #add-movie {
   .card {
     border-radius: $radius;
-    border: 2px solid $color-accent;
-    background-color: $color-dark;
+    border: 2px solid $color-accent !important;
+    background-color: $color-dark !important;
+    color: $color-light !important;
   }
   label {
-    color: $color-accent;
+    color: $color-accent !important;
     font-weight: bold;
   }
   input, textarea, select {
     border-radius: $radius;
-    border: 1px solid $color-muted;
+    border: 1px solid $color-muted !important;
+    background: #1a1a1a !important;
+    color: $color-light !important;
+    &:focus {
+      border-color: $color-accent !important;
+      box-shadow: 0 0 6px $color-accent !important;
+    }
   }
   button {
     border-radius: $radius;
-    background: $color-primary;
-    border: none;
+    background: $color-primary !important;
+    border: none !important;
+    color: $color-light !important;
     &:hover {
-      background: #b20710;
+      background: #b20710 !important;
     }
   }
 }
@@ -105,10 +114,10 @@ section {
   grid-template-rows: auto auto;
   grid-template-areas: "image details" "synopsis review";
   gap: 0.8rem;
-  background: $color-dark;
+  background: $color-dark !important;
   border-radius: $radius;
   padding: 0.8rem;
-  color: $color-light;
+  color: $color-light !important;
   margin-bottom: 1.5rem;
   max-width: 620px;
   font-size: 0.9rem;
@@ -143,17 +152,17 @@ section {
       transition: $transition;
     }
     .btn-edit {
-      background: $color-accent;
-      color: #000;
+      background: $color-accent !important;
+      color: #000 !important;
       &:hover {
-        background: #d4a100;
+        background: #d4a100 !important;
       }
     }
     .btn-delete {
-      background: $color-primary;
-      color: $color-light;
+      background: $color-primary !important;
+      color: $color-light !important;
       &:hover {
-        background: #b20710;
+        background: #b20710 !important;
       }
     }
   }
@@ -162,26 +171,26 @@ section {
     display: flex;
     flex-direction: column;
     .field {
-      border: 1px solid $color-muted;
+      border: 1px solid $color-muted !important;
       border-radius: 6px;
       padding: 0.5rem;
       margin-bottom: 0.5rem;
-      background: #1a1a1a;
+      background: #1a1a1a !important;
       strong {
-        color: $color-accent;
+        color: $color-accent !important;
       }
     }
   }
   &__synopsis, &__review {
-    border: 1px solid $color-muted;
+    border: 1px solid $color-muted !important;
     border-radius: $radius;
     padding: 0.8rem;
-    background: $color-dark;
-    color: $color-light;
+    background: $color-dark !important;
+    color: $color-light !important;
     h6 {
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: $color-accent;
+      color: $color-accent !important;
     }
   }
   &__synopsis {
@@ -193,79 +202,79 @@ section {
 }
 
 .modal-content {
-  background: $color-dark;
-  color: $color-light;
-  border: 1px solid $color-muted;
+  background: $color-dark !important;
+  color: $color-light !important;
+  border: 1px solid $color-muted !important;
   border-radius: $radius;
 }
 
 .modal-header {
-  border-bottom: 1px solid $color-muted;
+  border-bottom: 1px solid $color-muted !important;
   .btn-close {
     filter: invert(1);
   }
 }
 
 .modal-footer {
-  border-top: 1px solid $color-muted;
+  border-top: 1px solid $color-muted !important;
 }
 
 #editModal {
   .modal-content {
-    background: $color-dark;
-    color: $color-light;
-    border: 2px solid $color-accent;
+    background: $color-dark !important;
+    color: $color-light !important;
+    border: 2px solid $color-accent !important;
     border-radius: $radius;
   }
   .modal-header {
-    border-bottom: 1px solid $color-accent;
+    border-bottom: 1px solid $color-accent !important;
     .modal-title {
-      color: $color-accent;
+      color: $color-accent !important;
       font-weight: bold;
     }
   }
   label {
-    color: $color-accent;
+    color: $color-accent !important;
     font-weight: bold;
   }
   input, textarea, select {
-    background: #1a1a1a;
-    color: $color-light;
-    border: 1px solid $color-muted;
+    background: #1a1a1a !important;
+    color: $color-light !important;
+    border: 1px solid $color-muted !important;
     border-radius: $radius;
     &:focus {
       outline: none;
-      border-color: $color-accent;
-      box-shadow: 0 0 5px $color-accent;
+      border-color: $color-accent !important;
+      box-shadow: 0 0 5px $color-accent !important;
     }
   }
   .modal-footer {
-    border-top: 1px solid $color-accent;
+    border-top: 1px solid $color-accent !important;
   }
   .btn-primary {
-    background: $color-primary;
-    border: none;
+    background: $color-primary !important;
+    border: none !important;
     border-radius: $radius;
     &:hover {
-      background: #b20710;
+      background: #b20710 !important;
     }
   }
   .btn-secondary {
-    background: #333;
-    border: none;
+    background: #333 !important;
+    border: none !important;
     border-radius: $radius;
     &:hover {
-      background: #555;
+      background: #555 !important;
     }
   }
 }
 
 footer {
-  background: $color-dark;
+  background: $color-dark !important;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  color: $color-muted;
+  color: $color-muted !important;
   p {
     margin: 0;
   }

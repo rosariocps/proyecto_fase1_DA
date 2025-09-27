@@ -72,14 +72,40 @@ section {
   scroll-margin-top: 80px;
 }
 
-#add-movie fieldset {
+#add-movie .card {
   border-radius: var(--radius);
   border: 2px solid var(--color-accent);
   background-color: var(--color-dark);
+  color: var(--color-light);
+  padding: 20px;
 }
-#add-movie legend {
+#add-movie label {
   color: var(--color-accent);
   font-weight: bold;
+}
+#add-movie input,
+#add-movie textarea,
+#add-movie select {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-muted);
+  background: #1a1a1a;
+  color: var(--color-light);
+}
+#add-movie input:focus,
+#add-movie textarea:focus,
+#add-movie select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 5px var(--color-accent);
+}
+#add-movie button {
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  border: none;
+  color: var(--color-light);
+}
+#add-movie button:hover {
+  background: #b20710;
 }
 
 #movie-list table {
@@ -112,7 +138,7 @@ section {
   color: var(--color-accent);
 }
 .card-text {
-    color: white;
+  color: white;
 }
 
 #perfil img {
